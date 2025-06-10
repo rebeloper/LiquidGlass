@@ -39,7 +39,7 @@ public struct LiquidGlassBackgroundModifier: ViewModifier {
         radius: CGFloat,
         color: Color,
         material: Material = .ultraThinMaterial,
-        materialOpacity: Double = 0.5,
+        materialOpacity: Double = 0.7,
         gradientOpacity: Double = 0.5,
         gradientStyle: GradientStyle = .normal,
         strokeWidth: CGFloat = 1.5,
