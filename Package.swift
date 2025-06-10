@@ -5,6 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "LiquidGlass",
+    platforms: [
+        .iOS(.v15),
+        .macOS(.v14),
+        .visionOS(.v1),
+        .watchOS(.v10),
+        .tvOS(.v15),
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
