@@ -62,28 +62,21 @@ public struct LiquidGlassBackgroundModifier: ViewModifier {
     }
     
     public func body(content: Content) -> some View {
-        if #available(iOS 26.0, macOS 26.0, watchOS 26.0, tvOS 26.0, visionOS 26.0, *) {
-            content
-                .glassEffect(.regular.tint(color).interactive(), in: .rect(cornerRadius: radius))
-                .cornerRadius(radius)
-                .shadow(color: shadowColor.opacity(shadowOpacity), radius: shadowRadius, x: shadowX, y: shadowY)
-        } else {
-            content
-                .background(material)
-                .cornerRadius(radius)
-                .overlay(
-                    RoundedRectangle(cornerRadius: radius)
-                        .stroke(
-                            LinearGradient(
-                                gradient: Gradient(colors: gradientColors()),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ),
-                            lineWidth: strokeWidth
-                        )
-                )
-                .shadow(color: shadowColor.opacity(shadowOpacity), radius: shadowRadius, x: shadowX, y: shadowY)
-        }
+        content
+            .background(material)
+            .cornerRadius(radius)
+            .overlay(
+                RoundedRectangle(cornerRadius: radius)
+                    .stroke(
+                        LinearGradient(
+                            gradient: Gradient(colors: gradientColors()),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: strokeWidth
+                    )
+            )
+            .shadow(color: shadowColor.opacity(shadowOpacity), radius: shadowRadius, x: shadowX, y: shadowY)
     }
     
     private func gradientColors() -> [Color] {
